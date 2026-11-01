@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vllm-paged-router"
+version = "0.3.0"
+authors = [
+  { name="Dr. Ameh Moses Monday", email="mmeameh@gmail.com" },
+]
+description = "High-Throughput LLM Serving Gateway & PagedAttention KV-Cache Router for Kubernetes GPU Clusters"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,23 @@
+replicaCount: 3
+
+image:
+  repository: ghcr.io/mmeameh/vllm-paged-router
+  pullPolicy: IfNotPresent
+  tag: "v0.3.0"
+
+service:
+  type: ClusterIP
+  port: 8000
+
+gpuCluster:
+  workers:
+    - name: "gpu-node-a100-01"
+      endpoint: "http://vllm-worker-01:8000"
+    - name: "gpu-node-a100-02"
+      endpoint: "http://vllm-worker-02:8000"
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetGPUCacheUtilization: 80
